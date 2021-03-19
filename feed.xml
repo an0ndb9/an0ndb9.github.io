@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2021-03-19T19:35:44+05:30</updated><id>/feed.xml</id><title type="html">Saraunsh0x9</title><subtitle>Namaste, I'm Saraunsh Shewale from India &lt;3. I love to hack !.  Going to blog about my research in infosec, writups of CTF challenges &amp; HTB machines and occasional life lessons !!  
+</subtitle><entry><title type="html">TCS HackQuest Season 5 | Round - 2 &amp;amp; 3</title><link href="/2021/03/19/tcs-hackquest-round2.html" rel="alternate" type="text/html" title="TCS HackQuest Season 5 | Round - 2 &amp;amp; 3" /><published>2021-03-19T00:00:00+05:30</published><updated>2021-03-19T00:00:00+05:30</updated><id>/2021/03/19/tcs-hackquest-round2</id><content type="html" xml:base="/2021/03/19/tcs-hackquest-round2.html">&lt;p&gt;Hello again ! So here’s the writeup for round 2 &amp;amp; 3 of TCS HackQuest Season 5.&lt;/p&gt;
+
+&lt;p&gt;Round 2 was group discussion among 10 participants in each group. It was all about the approach taken to solve the CTF challegnes of round 1. Learnt lot from my fellow participants while we were discussing about every approach possible to solve the challenges.&lt;/p&gt;
+
+&lt;p&gt;Round 3 was proctored CTF round where we had to turn on the camera throughout the challenge duration. There were 3 CTF challenges &amp;amp; time duration was 2 hours. I managed to solve 2 and got 600 points.&lt;/p&gt;
+
+&lt;p&gt;After solving the CTF challenges we were given 1 hour to document everything we did to obtain the flag in a word document provided by TCS HackQuest team. So, make sure to write understandable descriptive steps that you have taken to solve the challenges &amp;amp; take screenshots of everything you do !!&lt;/p&gt;
+
+&lt;p&gt;I wrote this blog in a very beginner friendly way to help my future infosec buddies !&lt;/p&gt;
+
+&lt;p&gt;Following are the 2 challenges that I managed to solve in Round 3:&lt;/p&gt;
+
+&lt;h2 id=&quot;1-its-exposed-&quot;&gt;1. It’s Exposed !!&lt;/h2&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;no&quot;&gt;Flag&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;hq5{50m3*pu811c}&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;This challenge was simple OSINT. As it was given in the challenge about company startup named – arcanehqdev. So, I ran simple google search with this keyword &amp;amp; got following results. 
+ &lt;img src=&quot;/public/media/osint1.png&quot; alt=&quot;image&quot; /&gt;&lt;/li&gt;
+  &lt;li&gt;Then click on search instead &amp;amp; it gives 2 URLs which are related to Trello boards. Clicking on first Trello board link gives:
+ &lt;img src=&quot;/public/media/osint2.png&quot; alt=&quot;image&quot; /&gt;&lt;/li&gt;
+  &lt;li&gt;As we can see there’s a pastebin link shared with description as: Saved key. So, I browsed the link &amp;amp; got the key.
+ &lt;img src=&quot;/public/media/osint3.png&quot; alt=&quot;image&quot; /&gt;&lt;/li&gt;
+  &lt;li&gt;Submitting this key into the challenge website link returns the flag.
+ &lt;img src=&quot;/public/media/osint4.png&quot; alt=&quot;image&quot; /&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;2-a-pandemic-inhibitor&quot;&gt;2. A Pandemic Inhibitor&lt;/h2&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;no&quot;&gt;Flag&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;hq5{y0u_54v3d_y0u2531f}&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;We are given a website link, when we visit this link we see all sorts of guidelines and basic static info on the page regarding covid-19. Viewing the source code of the page, reveals a interesting API endpoint.
+ &lt;img src=&quot;/public/media/api1.png&quot; alt=&quot;image&quot; /&gt;&lt;/li&gt;
+  &lt;li&gt;When we visit this endpoint, we get the following API information that may present on the website along with the required parameters for each API call.
+ &lt;img src=&quot;/public/media/api2.png&quot; alt=&quot;image&quot; /&gt;&lt;/li&gt;
+  &lt;li&gt;Now I tried all the API requests with trial &amp;amp; error methdology and observed the responses in burp suite. The one which gave me the flag was API: &lt;em&gt;assistpersonnel&lt;/em&gt;.&lt;/li&gt;
+  &lt;li&gt;Then I capture the request in burp suite, added all the required parameters – helpingid, amount &amp;amp; comment. When I sent this request, the response came in as Helping ID is not registered.&lt;/li&gt;
+  &lt;li&gt;Then I thought of inputting my DT ID which is used to login in the TCS portal inside the parameter helpingid and guess what I got the flag in response of api request.
+ &lt;img src=&quot;/public/media/api3.png&quot; alt=&quot;image&quot; /&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Gracias &amp;amp; all the best&lt;/em&gt;&lt;/strong&gt; &lt;i class=&quot;fas fa-heart&quot;&gt;&lt;/i&gt; !!&lt;/p&gt;</content><author><name></name></author><category term="tcs" /><category term="ctf" /><category term="tcshackquest" /><category term="hackquest5" /><category term="contest-based-hiring" /><category term="grandfinalist" /><category term="top10" /><category term="ethicalhacking" /><summary type="html">Hello again ! So here’s the writeup for round 2 &amp;amp; 3 of TCS HackQuest Season 5.</summary></entry><entry><title type="html">TCS HackQuest Season 5 | Round - 1</title><link href="/2021/03/18/tcs-hackquest-round1.html" rel="alternate" type="text/html" title="TCS HackQuest Season 5 | Round - 1" /><published>2021-03-18T00:00:00+05:30</published><updated>2021-03-18T00:00:00+05:30</updated><id>/2021/03/18/tcs-hackquest-round1</id><content type="html" xml:base="/2021/03/18/tcs-hackquest-round1.html">&lt;p&gt;Hello folks, I’m really excited to share my TCS HackQuest Season 5 journey with you all through this blog !&lt;/p&gt;
+
+&lt;p&gt;It was quite amazing journey to be honest to compete with 22 thousand participants from 600+ instituions all across India ! I was one of the top 10 grand finalist of TCS HackQuest Season 5, awarded with 10k INR cash prize &amp;amp; job offer.&lt;/p&gt;
+
+&lt;p&gt;So, there were 3 rounds this season which were consisting of CTF challenges, Group Discussion &amp;amp; proctored CTF round (which was the final round.)&lt;/p&gt;
+
+&lt;p&gt;Round 1 had time duration of 4 hours in which we were given 10 challenges of different categories (such as Web, Reversing, Forensics, etc..) After solving the round 1 challenges we were given 2 hours to document everything we did to obtain the flag in a word document provided by TCS HackQuest team. So, make sure to write understandable descriptive steps that you have taken to solve the challenges &amp;amp; take screenshots of everything you do !!&lt;/p&gt;
+
+&lt;p&gt;I wrote this blog in a very beginner friendly way to help my future infosec buddies !&lt;/p&gt;
+
+&lt;p&gt;Following are the 5 challenges that I managed to solve in Round - 1 and got 900 points!&lt;/p&gt;
+
+&lt;h2 id=&quot;1-digi-magic&quot;&gt;1. Digi Magic&lt;/h2&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;no&quot;&gt;Flag&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;hq5{s0_Y0u_KN0W_HoW_$$1_worKs}&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;As the challenge talked about digital signature, it instantly came to my mind to check for SSL/TLS certificate.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;So, I clicked on ‘View Certificate’ option in mozilla firefox browser.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;There in the Locality field, you will see the base64 encoded string just decode it and you will get the flag.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;img src=&quot;/public/media/DigiMagic.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;2-i-am-always&quot;&gt;2. I Am Always&lt;/h2&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;no&quot;&gt;Flag&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;hq5{w1nn324v3n932}&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;As the challenge talked about hidden flag and when I browse through the challenge link, there  were  multiple images and first thought in my mind was to check for steganography or some sort of EXIF embedding in image metadata.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;I downloaded all the images from the challenge link.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Tools Used: 	&lt;a href=&quot;http://metapicz.com/#landing&quot;&gt;Metapicz&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;I search in all images for EXIF manipulation &amp;amp; found cool endpoint string in metadata of Hulk image.&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/public/media/IAmAlways1.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Visit this endpoint and you will get the flag !!&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/public/media/IAmAlways2.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;3-ice-cream-dispenser&quot;&gt;3. Ice Cream Dispenser&lt;/h2&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;no&quot;&gt;Flag&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;hq5{110v3*1c3_c234m}&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;ol&gt;
+  &lt;li&gt;This challenge involved small guess work.&lt;/li&gt;
+  &lt;li&gt;I intercepted the request in burp suite.&lt;/li&gt;
+  &lt;li&gt;Request: GET /geticecream&lt;/li&gt;
+  &lt;li&gt;When I send this request, response came in as – “Missing Flavour”. So, I added flavour parameter with a random string.&lt;/li&gt;
+  &lt;li&gt;For example: GET /geticecream?flavour=mango. But then again response returned as – “Are you requesting it correctly!”&lt;/li&gt;
+  &lt;li&gt;Then I change the GET request to POST and guess what the flag was returned in the response.&lt;/li&gt;
+  &lt;li&gt;Final request: POST /geticecream?flavour=mango
+ &lt;img src=&quot;/public/media/IceDispenser.png&quot; alt=&quot;image&quot; /&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;4-reggie-rich&quot;&gt;4. Reggie Rich&lt;/h2&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;no&quot;&gt;Flag&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;hq5{3nc2yp7*m45732}&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;ol&gt;
+  &lt;li&gt;This challenge was simple code review and bypassing of weak pattern matching function.&lt;/li&gt;
+  &lt;li&gt;Viewing the source code of the challenge page gives us commented source code at the bottom of the page.&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Code:&lt;/p&gt;
+
+    &lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; &lt;span class=&quot;c1&quot;&gt;#=&amp;gt; Code:&lt;/span&gt;
+ &lt;span class=&quot;n&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;replace_string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;vg&quot;&gt;$j0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+
+ &lt;span class=&quot;vg&quot;&gt;$a1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;vg&quot;&gt;$j0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;##hackquestchamp&lt;/span&gt;
+
+ &lt;span class=&quot;vg&quot;&gt;$h2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;preg_replace&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;/hackquestchamp/&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;vg&quot;&gt;$j0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;#replacing with empty string&lt;/span&gt;
+ &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;vg&quot;&gt;$a1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;==&lt;/span&gt;&lt;span class=&quot;vg&quot;&gt;$h2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+ &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+ &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;str_contains&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;vg&quot;&gt;$h2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'hackquestchamp'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+     &lt;span class=&quot;n&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Finally Working &quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;vg&quot;&gt;$h2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;}&lt;/span&gt;
+     &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;replace_string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;vg&quot;&gt;$h2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);}}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;As you can see it will match the string &lt;em&gt;hackquestchamp&lt;/em&gt; &amp;amp; replace it with the empty string.&lt;/li&gt;
+  &lt;li&gt;So,to bypass this weak pattern matching, simply input the following string.&lt;/li&gt;
+  &lt;li&gt;Final String: &lt;em&gt;hackquesthackquestchampchamp&lt;/em&gt;&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Pattern matching will remove the middle string &lt;em&gt;‘hackquestchamp’&lt;/em&gt; completely &amp;amp; then first &lt;em&gt;‘hackquest’&lt;/em&gt; string gets joined with last &lt;em&gt;‘champ’&lt;/em&gt; string resulting in function bypass and it returns our flag.&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/public/media/ReggieRich-2.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;5-record&quot;&gt;5. Record&lt;/h2&gt;
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;no&quot;&gt;Flag&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;HQ5{Malware_implement_persistence}&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;ol&gt;
+  &lt;li&gt;This challenge was too time consuming to check through all the logs to identify the flag.&lt;/li&gt;
+  &lt;li&gt;After clicking on “Take Me To Binary”, a RAR file get downloaded.&lt;/li&gt;
+  &lt;li&gt;Decompressing it will give two files: App.evtx &amp;amp; system.evtx&lt;/li&gt;
+  &lt;li&gt;Firstly, I checked what is the file type by running Unix command - file.
+ &lt;img src=&quot;/public/media/Record-1.png&quot; alt=&quot;image&quot; /&gt;&lt;/li&gt;
+  &lt;li&gt;As you can see in the screenshot, it is the event log file which can be opened by Windows Event Viewer. I immediately open both files and started looking for any intresting logs.&lt;/li&gt;
+  &lt;li&gt;As the challenge specifically said about “malware”. So, I tried searching record with string such as Trojan, Malware, Ransomware &amp;amp; to my notice I found one ransomware record consisting of based64 encoded string in the system.evtx log file.
+ &lt;img src=&quot;/public/media/Record-2.png&quot; alt=&quot;image&quot; /&gt;&lt;/li&gt;
+  &lt;li&gt;Decode the string and you will get the flag in plain text.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Gracias&lt;/em&gt;&lt;/strong&gt; &lt;i class=&quot;fas fa-heart&quot;&gt;&lt;/i&gt; !!&lt;/p&gt;</content><author><name></name></author><category term="tcs" /><category term="ctf" /><category term="tcshackquest" /><category term="hackquest5" /><category term="contest-based-hiring" /><category term="grandfinalist" /><category term="top10" /><category term="ethicalhacking" /><summary type="html">Hello folks, I’m really excited to share my TCS HackQuest Season 5 journey with you all through this blog !</summary></entry></feed>
