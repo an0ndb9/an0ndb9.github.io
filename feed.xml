@@ -1,5 +1,55 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://0xdb9.in/feed.xml" rel="self" type="application/atom+xml" /><link href="https://0xdb9.in/" rel="alternate" type="text/html" /><updated>2021-03-20T01:03:54+05:30</updated><id>https://0xdb9.in/feed.xml</id><title type="html">Saraunsh0x9</title><subtitle>Namaste, I'm Saraunsh Shewale from India &lt;3. I love to hack !.  Going to blog about my research in infosec, writups of CTF challenges &amp; HTB machines and occasional life lessons !!  
-</subtitle><entry><title type="html">TCS HackQuest Season 5 | Round - 2 &amp;amp; 3</title><link href="https://0xdb9.in/2021/03/19/tcs-hackquest-round2.html" rel="alternate" type="text/html" title="TCS HackQuest Season 5 | Round - 2 &amp;amp; 3" /><published>2021-03-19T00:00:00+05:30</published><updated>2021-03-19T00:00:00+05:30</updated><id>https://0xdb9.in/2021/03/19/tcs-hackquest-round2</id><content type="html" xml:base="https://0xdb9.in/2021/03/19/tcs-hackquest-round2.html">&lt;p&gt;Hello again ! So here’s the writeup for round 2 &amp;amp; 3 of TCS HackQuest Season 5.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://0xdb9.in/feed.xml" rel="self" type="application/atom+xml" /><link href="https://0xdb9.in/" rel="alternate" type="text/html" /><updated>2021-06-08T13:45:52+05:30</updated><id>https://0xdb9.in/feed.xml</id><title type="html">Saraunsh0x9</title><subtitle>Namaste, I'm Saraunsh Shewale from India &lt;3. I love to hack !.  Going to blog about my research in infosec, writups of CTF challenges &amp; HTB machines and occasional life lessons !!  
+</subtitle><entry><title type="html">CVE-2021-28293</title><link href="https://0xdb9.in/2021/06/07/cve-2021-28293.html" rel="alternate" type="text/html" title="CVE-2021-28293" /><published>2021-06-07T00:00:00+05:30</published><updated>2021-06-07T00:00:00+05:30</updated><id>https://0xdb9.in/2021/06/07/cve-2021-28293</id><content type="html" xml:base="https://0xdb9.in/2021/06/07/cve-2021-28293.html">&lt;p&gt;I always wonder how it feels to have a CVE ID assigned to our name &amp;amp; the day finally came to experience the true happiness towards my first CVE ID assignment. Let’s get started with the actual PoC !!&lt;/p&gt;
+
+&lt;h2 id=&quot;product-information&quot;&gt;Product Information&lt;/h2&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;no&quot;&gt;Vendor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Seceon&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Inc&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt;Product&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Seceon&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;aiSIEM&lt;/span&gt; 
+&lt;span class=&quot;no&quot;&gt;Version&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;6.3&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt; 
+&lt;span class=&quot;no&quot;&gt;Build&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;585&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt;Vulnerability&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Type&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Unauthenticated&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Account&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Takeover&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt;Severity&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;CRITICAL&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;poc--proof-of-concept&quot;&gt;PoC | Proof of Concept&lt;/h2&gt;
+
+&lt;p&gt;#1. Go to login page of Seceon aiSIEM and click on “Forgot Password” button. URL - https://192.168.x.x/nextgen/v1/#/login/forgot-password.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/public/media/seceon/11.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;#2. Configure any browser with burp suite localhost IP &amp;amp; port to intercept requests/responses.&lt;/p&gt;
+
+&lt;p&gt;#3. Open burp suite proxy interceptor, go to “Proxy” tab and ensure Intercept is on.&lt;/p&gt;
+
+&lt;p&gt;#4. Now, enter the email address of the victim and click on “Send Reset Link” button.&lt;/p&gt;
+
+&lt;p&gt;#5. You will observe the following request in burp suite, click on forward to proceed with the request.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/public/media/seceon/3.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;#6. Observe the next request very carefully, here the GET request call is being made to “sendemail” API endpoint along with the password reset (token) link !!&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/public/media/seceon/5.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;#7. Paste the copied link into the browser and enter the new password for the victim’s SIEM account.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/public/media/seceon/7.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;#8. Password is successfully changed and now an attacker can login with a victim’s email address &amp;amp; new password that has been just changed.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/public/media/seceon/8.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;3-impact&quot;&gt;3. Impact&lt;/h2&gt;
+
+&lt;p&gt;Any malicious user/attacker can change the credentials of any user/victim with only email address of victim’s account and that results in complete account takeover of the user. Only prerequisite to successful account takeover is email address of the victim.&lt;/p&gt;
+
+&lt;h2 id=&quot;4-cheers-&quot;&gt;4. Cheers !!&lt;/h2&gt;
+
+&lt;p&gt;The vulnerability got fixed in newer build versions &amp;amp; can not be exploitable further.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Gracias&lt;/em&gt;&lt;/strong&gt; &lt;i class=&quot;fas fa-heart&quot;&gt;&lt;/i&gt; !!&lt;/p&gt;</content><author><name></name></author><category term="cve-2021-28293" /><category term="account-takeover" /><category term="vulnerability" /><category term="seceon" /><category term="siem-tool" /><summary type="html">I always wonder how it feels to have a CVE ID assigned to our name &amp;amp; the day finally came to experience the true happiness towards my first CVE ID assignment. Let’s get started with the actual PoC !!</summary></entry><entry><title type="html">TCS HackQuest Season 5 | Round - 2 &amp;amp; 3</title><link href="https://0xdb9.in/2021/03/19/tcs-hackquest-round2.html" rel="alternate" type="text/html" title="TCS HackQuest Season 5 | Round - 2 &amp;amp; 3" /><published>2021-03-19T00:00:00+05:30</published><updated>2021-03-19T00:00:00+05:30</updated><id>https://0xdb9.in/2021/03/19/tcs-hackquest-round2</id><content type="html" xml:base="https://0xdb9.in/2021/03/19/tcs-hackquest-round2.html">&lt;p&gt;Hello again ! So here’s the writeup for round 2 &amp;amp; 3 of TCS HackQuest Season 5.&lt;/p&gt;
 
 &lt;p&gt;Round 2 was group discussion among 10 participants in each group. It was all about the approach taken to solve the CTF challegnes of round 1. Learnt lot from my fellow participants while we were discussing about every approach possible to solve the challenges.&lt;/p&gt;
 
