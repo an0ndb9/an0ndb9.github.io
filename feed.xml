@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://0xdb9.in/feed.xml" rel="self" type="application/atom+xml" /><link href="https://0xdb9.in/" rel="alternate" type="text/html" /><updated>2021-06-08T13:56:21+05:30</updated><id>https://0xdb9.in/feed.xml</id><title type="html">Saraunsh0x9</title><subtitle>Namaste, I'm Saraunsh Shewale from India &lt;3. I love to hack !.  Going to blog about my research in infosec, writups of CTF challenges &amp; HTB machines and occasional life lessons !!  
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://0xdb9.in/feed.xml" rel="self" type="application/atom+xml" /><link href="https://0xdb9.in/" rel="alternate" type="text/html" /><updated>2021-06-09T10:24:58+05:30</updated><id>https://0xdb9.in/feed.xml</id><title type="html">Saraunsh0x9</title><subtitle>Namaste, I'm Saraunsh Shewale from India &lt;3. I love to hack !.  Going to blog about my research in infosec, writups of CTF challenges &amp; HTB machines and occasional life lessons !!  
 </subtitle><entry><title type="html">CVE-2021-28293</title><link href="https://0xdb9.in/2021/06/07/cve-2021-28293.html" rel="alternate" type="text/html" title="CVE-2021-28293" /><published>2021-06-07T00:00:00+05:30</published><updated>2021-06-07T00:00:00+05:30</updated><id>https://0xdb9.in/2021/06/07/cve-2021-28293</id><content type="html" xml:base="https://0xdb9.in/2021/06/07/cve-2021-28293.html">&lt;p&gt;I always wonder how it feels to have a CVE ID assigned to our name &amp;amp; the day finally came to experience the true happiness towards my first CVE ID assignment. Let’s get started with the actual PoC !!&lt;/p&gt;
 
 &lt;h2 id=&quot;product-information&quot;&gt;Product Information&lt;/h2&gt;
@@ -46,6 +46,10 @@
 &lt;h2 id=&quot;cheers-&quot;&gt;Cheers !&lt;/h2&gt;
 
 &lt;p&gt;The vulnerability got fixed in newer build versions &amp;amp; can not be exploitable further.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;MITRE CVE: &lt;a href=&quot;https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-28293&quot;&gt;Check Here&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
