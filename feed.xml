@@ -1,5 +1,73 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://0xdb9.in/feed.xml" rel="self" type="application/atom+xml" /><link href="https://0xdb9.in/" rel="alternate" type="text/html" /><updated>2021-07-11T00:25:34+05:30</updated><id>https://0xdb9.in/feed.xml</id><title type="html">Saraunsh0x9</title><subtitle>Namaste, I'm Saraunsh Shewale from India &lt;3. I love to hack !.  Going to blog about my research in infosec, writups of CTF challenges &amp; HTB machines and occasional life lessons !!  
-</subtitle><entry><title type="html">How Mere Words Transformed Me ? | Ft. My College Journey !</title><link href="https://0xdb9.in/2021/07/10/my-college-journey.html" rel="alternate" type="text/html" title="How Mere Words Transformed Me ? | Ft. My College Journey !" /><published>2021-07-10T00:00:00+05:30</published><updated>2021-07-10T00:00:00+05:30</updated><id>https://0xdb9.in/2021/07/10/my-college-journey</id><content type="html" xml:base="https://0xdb9.in/2021/07/10/my-college-journey.html">&lt;p&gt;&lt;br /&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://0xdb9.in/feed.xml" rel="self" type="application/atom+xml" /><link href="https://0xdb9.in/" rel="alternate" type="text/html" /><updated>2023-11-12T19:35:43+00:00</updated><id>https://0xdb9.in/feed.xml</id><title type="html">Saraunsh0x9</title><subtitle>Namaste, I&apos;m Saraunsh Shewale from India &lt;3. I love to hack !.  Going to blog about my research in infosec, writups of CTF challenges &amp; HTB machines and occasional life lessons !!  
+</subtitle><entry><title type="html">Breaking into Contiinued Ft. Phishing the phishers..!</title><link href="https://0xdb9.in/2023/11/12/breaking-into-contiinued.html" rel="alternate" type="text/html" title="Breaking into Contiinued Ft. Phishing the phishers..!" /><published>2023-11-12T00:00:00+00:00</published><updated>2023-11-12T00:00:00+00:00</updated><id>https://0xdb9.in/2023/11/12/breaking-into-contiinued</id><content type="html" xml:base="https://0xdb9.in/2023/11/12/breaking-into-contiinued.html">&lt;p&gt;&lt;br /&gt;
+I know it’s been a long time since I blogged anything as I was busy with lot of things and being lazy at the same time. Now that I’m back, I will try to be more consistent and more frequent to share some more good stuff. So, that it will keep myself and this domain alive! 😁
+&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+&lt;h2 id=&quot;disclaimer-101&quot;&gt;Disclaimer 101&lt;/h2&gt;
+
+&lt;p&gt;Before proceeding further, I want my readers to know that this writeup is just for educational purpose. I don’t intend to harm, steal or masquerade someone’s identity. Most of the details are blurred for obvious reasons. This is just to understand how modern threat vectors work and how can we be safe from such attacks!&lt;/p&gt;
+
+&lt;h2 id=&quot;lets-go&quot;&gt;Let’s go..!&lt;/h2&gt;
+
+&lt;p&gt;So, recently I recieved an sms on my cell phone which pretends to be from Irish revenue. It is about some delivery for which I need to pay the custom charge. There’s a link in it as well to pay the fees and get my package delivered. Easy right? Well I knew it was fake website by looking at it in the first place but I still had some curiosity to dig deeper into it.
+&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;(I can’t help it…it’s not me, it’s my dodgy mind..!).&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/public/media/contiinued/phish-sms.jpg&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;enum-enum-and-enum&quot;&gt;Enum enum and enum!&lt;/h2&gt;
+
+&lt;p&gt;Visited the link in web browser and it redirected me to a page which exactly looks like famous courier service - An Post. Well, I saw many blog post recently which highlights the usage of An-Post landing page by threat actors to phish the users.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/public/media/contiinued/web-interface.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+Without hesitating, I turned my burpiee interceptor on and started playing with the web page. Provided dummy details such as phone number, name, address, etc. and later it redirected to payments page which prompted me to enter my credit card details. Yes, afterall this is what they want from me. &lt;strong&gt;&lt;em&gt;(They probably didn’t know how broke I’m …!)&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/public/media/contiinued/personal-details.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+Upon checking burp history, I saw an interesting URL endpoint which keeps on sending GET requests to capture the time (More like a basic C2 component). This was verified by inspecting the client side code.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/public/media/contiinued/interesting-endpoint.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;This endpoint motivated me to perform basic injection attacks like LFI, SQLi, etc and guess what the parameter was not sanitizing the user supplied input and directly passing it to the SQL query. The endpoint was vulnerable to SQL injection and I could easily pwn the database by querying table records. 
+&lt;br /&gt;
+&lt;br /&gt;
+I enumerated the entire database, gathered information related to phishing kit like administrator username, password hash, etc. After general google dorking, I came to find out that, it’s a popular phishing kit known by &lt;strong&gt;&lt;em&gt;Contiinued&lt;/em&gt;&lt;/strong&gt;. Although, it’s poorly configured and easy to pwn but still has lot of customizability to target and scam users. I further checked database records and found out hundreds of users got tricked and ended up giving their personal information including credit card details (scary shit!). To be precise, by the time I was investigating, it almost had 1916 records!&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/public/media/contiinued/phished-users.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;further-drillin-down&quot;&gt;Further drillin’ down..!&lt;/h2&gt;
+
+&lt;p&gt;My dodgy mind still wanted me to see the admin panel of this phishing kit but it was behind password protected endpoint. Just like any other kid, I had a curiosity to know what is behind that wall !&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/public/media/contiinued/admin-panel.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Conducted further test cases to bypass the login functionality but had no luck with it. Then, I started enumerating the hidden directories using my favourite fuzzer a.k.a Gobuster. Found multiple directories which had directory listing enabled as I said previously, it was poorly misconfigured server. The application was vulnerable to IDOR and had poor authorization checks in place which can be easily bypassed.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/public/media/contiinued/admin-directory.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;I found one interesting .php file for which I did parameter fuzzing and luckily that parameter resulted me in bypassing the authorization check and thus I was able to directly see the phishing kit’s backend functionality.&lt;/p&gt;
+
+&lt;p&gt;I was able to look for the dummy data which I entered during the initial investigation phase. The data get’s nicely categorized and presented to panel administrator for viewing. Also, there are other functionalities in the panel which allows administrator’s to request personal information or send fake bank OTPs directly to the victim’s phone number.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/public/media/contiinued/panel-data.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/public/media/contiinued/panel-data2.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;final-words&quot;&gt;Final Words&lt;/h2&gt;
+
+&lt;p&gt;Upon querying various threat intel services, I have found many similar domains which are utilizing this Contiinued phishing kit and actively targetting users to steal potential PII data. This phishing kit primarily masquerades as HSBC bank, An-Post and other bank portals which have their presence in UK and Europe.&lt;/p&gt;
+
+&lt;p&gt;Although, their setup looks pretty obvious and phishy but still the amount of data they harvest is huge. Security awareness and education on phishing attack vectors can help detect and prevent such type of attacks. It was fun analyzing and understanding the mechanics behind this phishing kit. Indeed a great learning experience…!&lt;/p&gt;
+
+&lt;p&gt;I kept the write up easy to read and follow up along without getting into more technical details as it might aware the operators about the bug they have in their portal and they might turn it into a robust one (we never know !). Although, this phishing kit seems quite old but  it’s stil acitve. Latest versions of this kit has been seen lately in the public domain. If we get an opportunity, we will do the honors for that also!
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;strong&gt;&lt;em&gt;That’s it for this one … see you folks in the next blog post ..! ❤️&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;</content><author><name></name></author><category term="contiinued" /><category term="an-post" /><category term="irish-revenue" /><category term="phishing-as-a-service" /><category term="phishing-kits" /><category term="social-engineering" /><summary type="html">I know it’s been a long time since I blogged anything as I was busy with lot of things and being lazy at the same time. Now that I’m back, I will try to be more consistent and more frequent to share some more good stuff. So, that it will keep myself and this domain alive! 😁 Disclaimer 101</summary></entry><entry><title type="html">How Mere Words Transformed Me ? | Ft. My College Journey !</title><link href="https://0xdb9.in/2021/07/10/my-college-journey.html" rel="alternate" type="text/html" title="How Mere Words Transformed Me ? | Ft. My College Journey !" /><published>2021-07-10T00:00:00+01:00</published><updated>2021-07-10T00:00:00+01:00</updated><id>https://0xdb9.in/2021/07/10/my-college-journey</id><content type="html" xml:base="https://0xdb9.in/2021/07/10/my-college-journey.html">&lt;p&gt;&lt;br /&gt;
 Bringing back you folks to the days when I was just a weak, shy and a very less confident guy. I had just completed my schooling and was about to enter in my college phase. I decided to leave my hometown for obvious reasons and took admission in a well known city of Maharashtra &amp;amp; one of the best IT hub’s in India a.k.a. pune !&lt;/p&gt;
 
 &lt;h2 id=&quot;background&quot;&gt;Background$~&lt;/h2&gt;
@@ -63,7 +131,7 @@ Fortunately everything went well in my academic journey and finally it came to h
 
 &lt;p&gt;&lt;br /&gt;
 &lt;br /&gt;
-&lt;strong&gt;&lt;em&gt;Well, thank you all for reading such a long post ❤&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;</content><author><name></name></author><category term="engineering-life" /><category term="goodold-days" /><category term="happy-transformation" /><category term="journey" /><category term="life-changing-movements" /><category term="saitama" /><summary type="html">Bringing back you folks to the days when I was just a weak, shy and a very less confident guy. I had just completed my schooling and was about to enter in my college phase. I decided to leave my hometown for obvious reasons and took admission in a well known city of Maharashtra &amp;amp; one of the best IT hub’s in India a.k.a. pune !</summary></entry><entry><title type="html">CVE-2021-28293</title><link href="https://0xdb9.in/2021/06/07/cve-2021-28293.html" rel="alternate" type="text/html" title="CVE-2021-28293" /><published>2021-06-07T00:00:00+05:30</published><updated>2021-06-07T00:00:00+05:30</updated><id>https://0xdb9.in/2021/06/07/cve-2021-28293</id><content type="html" xml:base="https://0xdb9.in/2021/06/07/cve-2021-28293.html">&lt;p&gt;I always wonder how it feels to have a CVE ID assigned to our name &amp;amp; the day finally came to experience the true happiness towards my first CVE ID assignment. Let’s get started with the actual PoC !!&lt;/p&gt;
+&lt;strong&gt;&lt;em&gt;Well, thank you all for reading such a long post ❤&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;</content><author><name></name></author><category term="engineering-life" /><category term="goodold-days" /><category term="happy-transformation" /><category term="journey" /><category term="life-changing-movements" /><category term="saitama" /><summary type="html">Bringing back you folks to the days when I was just a weak, shy and a very less confident guy. I had just completed my schooling and was about to enter in my college phase. I decided to leave my hometown for obvious reasons and took admission in a well known city of Maharashtra &amp;amp; one of the best IT hub’s in India a.k.a. pune !</summary></entry><entry><title type="html">CVE-2021-28293</title><link href="https://0xdb9.in/2021/06/07/cve-2021-28293.html" rel="alternate" type="text/html" title="CVE-2021-28293" /><published>2021-06-07T00:00:00+01:00</published><updated>2021-06-07T00:00:00+01:00</updated><id>https://0xdb9.in/2021/06/07/cve-2021-28293</id><content type="html" xml:base="https://0xdb9.in/2021/06/07/cve-2021-28293.html">&lt;p&gt;I always wonder how it feels to have a CVE ID assigned to our name &amp;amp; the day finally came to experience the true happiness towards my first CVE ID assignment. Let’s get started with the actual PoC !!&lt;/p&gt;
 
 &lt;h2 id=&quot;product-information&quot;&gt;Product Information&lt;/h2&gt;
 
@@ -121,7 +189,7 @@ Fortunately everything went well in my academic journey and finally it came to h
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;&lt;em&gt;Gracias&lt;/em&gt;&lt;/strong&gt; &lt;i class=&quot;fas fa-heart&quot;&gt;&lt;/i&gt; !!&lt;/p&gt;</content><author><name></name></author><category term="cve-2021-28293" /><category term="account-takeover" /><category term="vulnerability" /><category term="seceon" /><category term="siem-tool" /><summary type="html">I always wonder how it feels to have a CVE ID assigned to our name &amp;amp; the day finally came to experience the true happiness towards my first CVE ID assignment. Let’s get started with the actual PoC !!</summary></entry><entry><title type="html">TCS HackQuest Season 5 | Round - 2 &amp;amp; 3</title><link href="https://0xdb9.in/2021/03/19/tcs-hackquest-round2.html" rel="alternate" type="text/html" title="TCS HackQuest Season 5 | Round - 2 &amp;amp; 3" /><published>2021-03-19T00:00:00+05:30</published><updated>2021-03-19T00:00:00+05:30</updated><id>https://0xdb9.in/2021/03/19/tcs-hackquest-round2</id><content type="html" xml:base="https://0xdb9.in/2021/03/19/tcs-hackquest-round2.html">&lt;p&gt;Hello again ! So here’s the writeup for round 2 &amp;amp; 3 of TCS HackQuest Season 5.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Gracias&lt;/em&gt;&lt;/strong&gt; &lt;i class=&quot;fas fa-heart&quot;&gt;&lt;/i&gt; !!&lt;/p&gt;</content><author><name></name></author><category term="cve-2021-28293" /><category term="account-takeover" /><category term="vulnerability" /><category term="seceon" /><category term="siem-tool" /><summary type="html">I always wonder how it feels to have a CVE ID assigned to our name &amp;amp; the day finally came to experience the true happiness towards my first CVE ID assignment. Let’s get started with the actual PoC !!</summary></entry><entry><title type="html">TCS HackQuest Season 5 | Round - 2 &amp;amp; 3</title><link href="https://0xdb9.in/2021/03/19/tcs-hackquest-round2.html" rel="alternate" type="text/html" title="TCS HackQuest Season 5 | Round - 2 &amp;amp; 3" /><published>2021-03-19T00:00:00+00:00</published><updated>2021-03-19T00:00:00+00:00</updated><id>https://0xdb9.in/2021/03/19/tcs-hackquest-round2</id><content type="html" xml:base="https://0xdb9.in/2021/03/19/tcs-hackquest-round2.html">&lt;p&gt;Hello again ! So here’s the writeup for round 2 &amp;amp; 3 of TCS HackQuest Season 5.&lt;/p&gt;
 
 &lt;p&gt;Round 2 was group discussion among 10 participants in each group. It was all about the approach taken to solve the CTF challegnes of round 1. Learnt lot from my fellow participants while we were discussing about every approach possible to solve the challenges.&lt;/p&gt;
 
@@ -165,7 +233,7 @@ Fortunately everything went well in my academic journey and finally it came to h
  &lt;img src=&quot;/public/media/api3.png&quot; alt=&quot;image&quot; /&gt;&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;&lt;strong&gt;&lt;em&gt;Gracias &amp;amp; all the best&lt;/em&gt;&lt;/strong&gt; &lt;i class=&quot;fas fa-heart&quot;&gt;&lt;/i&gt; !!&lt;/p&gt;</content><author><name></name></author><category term="tcs" /><category term="ctf" /><category term="tcshackquest" /><category term="hackquest5" /><category term="contest-based-hiring" /><category term="grandfinalist" /><category term="top10" /><category term="ethicalhacking" /><summary type="html">Hello again ! So here’s the writeup for round 2 &amp;amp; 3 of TCS HackQuest Season 5.</summary></entry><entry><title type="html">TCS HackQuest Season 5 | Round - 1</title><link href="https://0xdb9.in/2021/03/18/tcs-hackquest-round1.html" rel="alternate" type="text/html" title="TCS HackQuest Season 5 | Round - 1" /><published>2021-03-18T00:00:00+05:30</published><updated>2021-03-18T00:00:00+05:30</updated><id>https://0xdb9.in/2021/03/18/tcs-hackquest-round1</id><content type="html" xml:base="https://0xdb9.in/2021/03/18/tcs-hackquest-round1.html">&lt;p&gt;Hello folks, I’m really excited to share my TCS HackQuest Season 5 journey with you all through this blog !&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Gracias &amp;amp; all the best&lt;/em&gt;&lt;/strong&gt; &lt;i class=&quot;fas fa-heart&quot;&gt;&lt;/i&gt; !!&lt;/p&gt;</content><author><name></name></author><category term="tcs" /><category term="ctf" /><category term="tcshackquest" /><category term="hackquest5" /><category term="contest-based-hiring" /><category term="grandfinalist" /><category term="top10" /><category term="ethicalhacking" /><summary type="html">Hello again ! So here’s the writeup for round 2 &amp;amp; 3 of TCS HackQuest Season 5.</summary></entry><entry><title type="html">TCS HackQuest Season 5 | Round - 1</title><link href="https://0xdb9.in/2021/03/18/tcs-hackquest-round1.html" rel="alternate" type="text/html" title="TCS HackQuest Season 5 | Round - 1" /><published>2021-03-18T00:00:00+00:00</published><updated>2021-03-18T00:00:00+00:00</updated><id>https://0xdb9.in/2021/03/18/tcs-hackquest-round1</id><content type="html" xml:base="https://0xdb9.in/2021/03/18/tcs-hackquest-round1.html">&lt;p&gt;Hello folks, I’m really excited to share my TCS HackQuest Season 5 journey with you all through this blog !&lt;/p&gt;
 
 &lt;p&gt;It was quite amazing journey to be honest to compete with 22 thousand participants from 600+ instituions all across India ! I was one of the top 10 grand finalist of TCS HackQuest Season 5, awarded with 10k INR cash prize &amp;amp; job offer.&lt;/p&gt;
 
@@ -255,7 +323,7 @@ Fortunately everything went well in my academic journey and finally it came to h
  &lt;span class=&quot;vg&quot;&gt;$h2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;preg_replace&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;/hackquestchamp/&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;vg&quot;&gt;$j0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;#replacing with empty string&lt;/span&gt;
  &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;vg&quot;&gt;$a1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;==&lt;/span&gt;&lt;span class=&quot;vg&quot;&gt;$h2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
  &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
- &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;str_contains&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;vg&quot;&gt;$h2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'hackquestchamp'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+ &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;str_contains&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;vg&quot;&gt;$h2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;hackquestchamp&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
      &lt;span class=&quot;n&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Finally Working &quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;vg&quot;&gt;$h2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;}&lt;/span&gt;
      &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;replace_string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;vg&quot;&gt;$h2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);}}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
