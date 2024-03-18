@@ -1,5 +1,64 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://0xdb9.in/feed.xml" rel="self" type="application/atom+xml" /><link href="https://0xdb9.in/" rel="alternate" type="text/html" /><updated>2023-11-12T19:35:43+00:00</updated><id>https://0xdb9.in/feed.xml</id><title type="html">Saraunsh0x9</title><subtitle>Namaste, I&apos;m Saraunsh Shewale from India &lt;3. I love to hack !.  Going to blog about my research in infosec, writups of CTF challenges &amp; HTB machines and occasional life lessons !!  
-</subtitle><entry><title type="html">Breaking into Contiinued Ft. Phishing the phishers..!</title><link href="https://0xdb9.in/2023/11/12/breaking-into-contiinued.html" rel="alternate" type="text/html" title="Breaking into Contiinued Ft. Phishing the phishers..!" /><published>2023-11-12T00:00:00+00:00</published><updated>2023-11-12T00:00:00+00:00</updated><id>https://0xdb9.in/2023/11/12/breaking-into-contiinued</id><content type="html" xml:base="https://0xdb9.in/2023/11/12/breaking-into-contiinued.html">&lt;p&gt;&lt;br /&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://0xdb9.in/feed.xml" rel="self" type="application/atom+xml" /><link href="https://0xdb9.in/" rel="alternate" type="text/html" /><updated>2024-03-18T22:56:34+00:00</updated><id>https://0xdb9.in/feed.xml</id><title type="html">Saraunsh0x9</title><subtitle>Namaste, I&apos;m Saraunsh Shewale from India &lt;3. I love to hack !.  Going to blog about my research in infosec, writups of CTF challenges &amp; HTB machines and occasional life lessons !!  
+</subtitle><entry><title type="html">CRTP: Certified Red Team Professional</title><link href="https://0xdb9.in/2024/03/18/my-crtp.html" rel="alternate" type="text/html" title="CRTP: Certified Red Team Professional" /><published>2024-03-18T00:00:00+00:00</published><updated>2024-03-18T00:00:00+00:00</updated><id>https://0xdb9.in/2024/03/18/my-crtp</id><content type="html" xml:base="https://0xdb9.in/2024/03/18/my-crtp.html">&lt;p&gt;&lt;br /&gt;
+When it comes to AD pentesting or even let’s say Windows security, I always felt I don’t know much about it. Most of the Linux users might also relate to this feeling as majority of the infosec people start their journey from Linux environment because Linux is LOVE! This makes people little unaware or less interested towards Windows security part. But what if I say, Windows and AD security is much more fun and interesting compared to other stuff? Well, let me share my experience of diving into AD pentesting world!&lt;/p&gt;
+
+&lt;h2 id=&quot;how-i-started&quot;&gt;How I Started…!&lt;/h2&gt;
+
+&lt;p&gt;My colleague asked me a month ago whether I’m interested in CRTP cert and without any hesitation I said &lt;strong&gt;OF COURSE!&lt;/strong&gt; CRTP was known to me due to its recognition and reputation. It was also among my cert aspirations. So, I got enrolled for CRTP bootcamp which included 30 days of lab access and 4 hours of interactive live sessions which spanned over 4 weekends. I would like to thanks &lt;span style=&quot;color:green&quot;&gt;CommSec&lt;/span&gt; for sponsoring the CRTP certification 🙂&lt;/p&gt;
+
+&lt;h2 id=&quot;about-bootcamp&quot;&gt;About Bootcamp&lt;/h2&gt;
+
+&lt;p&gt;The bootcamp was great, there were 4 live sessions on each Sunday. Nikhil (&lt;a href=&quot;https://twitter.com/nikhil_mitt&quot;&gt;@nikhil_mitt&lt;/a&gt;) the legend himself goes through the entire learning material and explains everything from scratch. The practice lab has 23 learning objectives or you can call them as flags which we need to grab step by step. Nikhil start the day one from AD introduction and overview of basic concepts like Domain, Forest, OUs, etc. and then moves laterally towards local privilege escalation, domain enumeration, credential theft, misconfigurations, exploitation, lateral movement, pivoting and so on. He also takes questions during live sessions and that makes the session very interactive.&lt;br /&gt;
+&lt;br /&gt;
+Overall it was great hearing from his experiences. Most fun part during live sessions were indeed his jokes! My favourite classic among all was this one - &lt;strong&gt;&lt;em&gt;&lt;span style=&quot;color:yellow&quot;&gt;The person who set up the DSRM administrator password is probably not alive anymore…!&lt;/span&gt;&lt;/em&gt;&lt;/strong&gt; 😂 
+&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;crtp-practice-lab&quot;&gt;CRTP Practice Lab&lt;/h2&gt;
+
+&lt;p&gt;The lab is not vulnerable to any patchable exploits and it only relies on exploitation of realistic AD misconfigurations. Servers in the lab are latest i.e., Windows 2022 servers with January 2024 security patches applied and that is the best part of this course! It’s pretty amazing to know that most of these attacks are still prevalent in 2024! The lab guide also includes Sliver C2 lab manual along with security tools which can be used to solve the lab! The lab is spread across 2 forests and 4-5 Windows servers. This setup gives us a realistic flavour of enterprise AD networks. Before enrolling CRTP, I had limited knowledge on AD attacks from my past HTB (HackTheBox) experience but I never enjoyed it the way I enjoyed CRTP lab! After completing all lab objectives and revisiting some of the course modules, I gained significant knowledge and felt confident to approach the exam!&lt;/p&gt;
+
+&lt;h2 id=&quot;crtp-exam&quot;&gt;CRTP Exam&lt;/h2&gt;
+
+&lt;p&gt;The objective of CRTP exam is to gain OS command execution on all 5 Windows servers not necessarily with administrator privileges! The timeline for this is 25 hours (including extra 1 hour spent on setting up the lab instance). Once all machines are compromised, a detailed report needs to be drafted detailing each and every step on how you compromised the machine and it needs to be delivered after exam to Altered Security team for validation within 48 hours.&lt;/p&gt;
+
+&lt;h2 id=&quot;my-exam-attempt&quot;&gt;My Exam Attempt&lt;/h2&gt;
+
+&lt;p&gt;My lab access was still going on and I completed all sessions and learning objectives in the lab and that made me think of going straight towards the exam lab and see how it goes! (In the worst case scenario … I would fail and that is not a big deal!).&lt;/p&gt;
+
+&lt;p&gt;I was not supposed to start the exam until my lab access expires but it was an instantaneous thought that lifted my lazy body from the bed to take the exam. So, I started the exam on Saturday evening around 8 PM but before that I spent 1 hour setting up all the required tools for exam instance including setting up BloodHound AD on my host machine to visualize AD OUs, ACLs, Mappings, Trust, etc. &lt;br /&gt;
+&lt;br /&gt;
+&lt;strong&gt;TIP&lt;/strong&gt;: &lt;span style=&quot;color:red&quot;&gt;BloodHound&lt;/span&gt; is the &lt;strong&gt;MOST&lt;/strong&gt; helpful tool in the exam!&lt;br /&gt;
+&lt;br /&gt;
+First three hours in the exam were so stressful as I was not moving anywhere except local privilege escalation on the foothold machine. I got frustrated and took a break around 11 PM. My roommate was making a pizza and I joined him. I remember saying to my friend that - “I’m going to fail pretty bad” and he said “You’ll be fine!”. 
+&lt;br /&gt;
+&lt;br /&gt;
+Back on my ThinkPad again (I have unconditional love for my &lt;span style=&quot;color:yellow&quot;&gt;ThinkPad&lt;/span&gt;). Started to think from point zero, enumerated again and guess what I pwn the first machine! This was just the beginning but I felt really confident.  After the first win, all other machines felt pretty straight forward and easy. If you did all learning objectives and some practice in the lab, it will be a sort of cake walk for you! Within next 3 hours, I pwned 2 other machines and went for a sleep at around 3AM!&lt;br /&gt;
+&lt;br /&gt;
+Woke up early in the morning and jumped back again on my beloved ThinkPad. Struggled on 3rd machine for a while but figured out how to go from there and rest was a moonwalk. Done with all 5 machines and moved to report writing right away as I wanted to get everything done before Monday morning! Two hours after my exam time, I consolidated all my findings and drafted a detailed 30 page report which had each and every step from enumeration till exploitation. The report is then submitted to Altered Security team for validation.&lt;br /&gt;
+&lt;br /&gt;
+After one week from report submission, I got the results from Altered Security Team saying &lt;span style=&quot;color:Green&quot;&gt;Congratulations&lt;/span&gt;, You Passed! 🥂&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/public/media/crtp/crtp-result.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;some-tips&quot;&gt;Some Tips&lt;/h2&gt;
+
+&lt;p&gt;Do not want to give any unnecessary spoilers for the exam but following tips might be useful for CRTP exam takers! 
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;strong&gt;&lt;span style=&quot;color:yellow&quot;&gt;Tools&lt;/span&gt;&lt;/strong&gt;: Make sure you keep copy of all required tools before starting the exam as it will save you lot of time! Do not rely on one specific tool, be open to try out other alternatives!&lt;br /&gt;
+&lt;br /&gt;
+&lt;strong&gt;&lt;span style=&quot;color:red&quot;&gt;Take breaks&lt;/span&gt;&lt;/strong&gt;: During these 24 hours, I did not had any small breaks as I personally feel non-productive and stressful during those breaks. But from personal experience, please take the breaks as required and you will feel relaxed during these stressful exam hours! 
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;strong&gt;&lt;span style=&quot;color:green&quot;&gt;Note Taking&lt;/span&gt;&lt;/strong&gt;: Once you made some progress or owned a machine, do not forget to take notes and screenshots as it will save you lot of time during report creation. You can use OneNote, CherryTree, Notion, etc.
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;strong&gt;&lt;span style=&quot;color:blue&quot;&gt;Exam Report&lt;/span&gt;&lt;/strong&gt;: Successful OS command execution on all 5 machines does not guarantee in passing the CRTP exam. One needs to draft a detailed report with evidence and explanation on how you compromised a particular machine. Try to make the report appealing and easy to follow up just like how you would write a pentest report! 
+&lt;br /&gt;
+&lt;br /&gt;
+And that’s all from me. I hope you will find this CRTP review helpful.&lt;br /&gt;
+&lt;br /&gt;
+See you again in some other blog post…! ❤️&lt;/p&gt;</content><author><name></name></author><category term="CRTP" /><category term="active-directory" /><category term="pentesting" /><category term="AD" /><category term="real-world" /><category term="hacking" /><category term="windows" /><category term="security" /><category term="red-team" /><summary type="html">When it comes to AD pentesting or even let’s say Windows security, I always felt I don’t know much about it. Most of the Linux users might also relate to this feeling as majority of the infosec people start their journey from Linux environment because Linux is LOVE! This makes people little unaware or less interested towards Windows security part. But what if I say, Windows and AD security is much more fun and interesting compared to other stuff? Well, let me share my experience of diving into AD pentesting world!</summary></entry><entry><title type="html">Breaking into Contiinued Ft. Phishing the phishers..!</title><link href="https://0xdb9.in/2023/11/12/breaking-into-contiinued.html" rel="alternate" type="text/html" title="Breaking into Contiinued Ft. Phishing the phishers..!" /><published>2023-11-12T00:00:00+00:00</published><updated>2023-11-12T00:00:00+00:00</updated><id>https://0xdb9.in/2023/11/12/breaking-into-contiinued</id><content type="html" xml:base="https://0xdb9.in/2023/11/12/breaking-into-contiinued.html">&lt;p&gt;&lt;br /&gt;
 I know it’s been a long time since I blogged anything as I was busy with lot of things and being lazy at the same time. Now that I’m back, I will try to be more consistent and more frequent to share some more good stuff. So, that it will keep myself and this domain alive! 😁
 &lt;br /&gt;
 &lt;br /&gt;&lt;/p&gt;
